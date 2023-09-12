@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+exports.commentRouter = void 0;
+var express_1 = require("express");
+var auth_1 = require("../middleware/auth");
+var CommentController_1 = require("../controller/CommentController");
+exports.commentRouter = (0, express_1.Router)();
+exports.commentRouter.use(auth_1.auth);
+exports.commentRouter.get("/:id", CommentController_1["default"].getAllComments);
+exports.commentRouter.post("/add", CommentController_1["default"].createComment);
+exports.commentRouter.put("/editComment/:idComment", CommentController_1["default"].editComment);
+exports.commentRouter["delete"]("/deleteComment/:idComment", CommentController_1["default"].removeComment);
